@@ -36,80 +36,94 @@ let appData = {
     expenses: {},
     optionalExpenses: {},
     icome: [],
-    savings: true
-};
-
-function chooseExpenses() {
-    for(let i = 0; i < 2; i++){
-        let answerOnFirstQuestion = prompt("Enter mandatoryarticle expenses on current month:",""),
-            answerOnSecondQuestion = prompt("How money need for it?","");
-
-        if( (typeof(answerOnFirstQuestion)) === 'string' && (typeof(answerOnFirstQuestion)) != null && (
-            typeof(answerOnSecondQuestion)) != null && answerOnFirstQuestion != '' && answerOnSecondQuestion != '' && 
-            answerOnFirstQuestion.length < 50) {
-                console.log("done");
-                appData.expenses[answerOnFirstQuestion] = answerOnSecondQuestion;
-
-        } else {
-            i = i - 1;
+    savings: true,
+    chooseExpenses: function() {
+        for(let i = 0; i < 2; i++){
+            let answerOnFirstQuestion = prompt("Enter mandatoryarticle expenses on current month:",""),
+                answerOnSecondQuestion = prompt("How money need for it?","");
+    
+            if( (typeof(answerOnFirstQuestion)) === 'string' && (typeof(answerOnFirstQuestion)) != null && (
+                typeof(answerOnSecondQuestion)) != null && answerOnFirstQuestion != '' && answerOnSecondQuestion != '' && 
+                answerOnFirstQuestion.length < 50) {
+                    console.log("done");
+                    appData.expenses[answerOnFirstQuestion] = answerOnSecondQuestion;
+    
+            } else {
+                 i = i - 1;
+            }
         }
-    }
-    /*let i = 0;
-    do { 
-        let answerOnFirstQuestion = prompt("Enter mandatoryarticle expenses on current month:",""),
-            answerOnSecondQuestion = prompt("How money need for it?","");
-
-        if( (typeof(answerOnFirstQuestion)) === 'string' && (typeof(answerOnFirstQuestion)) != null && (
-            typeof(answerOnSecondQuestion)) != null && answerOnFirstQuestion != '' && answerOnSecondQuestion != '' && 
-            answerOnFirstQuestion.length < 50) {
-                console.log("done");
-                appData.expenses[answerOnFirstQuestion] = answerOnSecondQuestion;
-                i++;
-
+    },
+    detectDayBudget: function() {
+        appData.moneyPerDay = (appData.budget / 30).toFixed(); 
+        alert("Budget on one day is - " + appData.moneyPerDay);
+    },
+    detectLevel: function() {
+        if(appData.moneyPerDay < 100) {
+            console.log("Low income!");
+        } else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+            console.log("Average income!");
+        } else if ( appData.moneyPerDay > 2000) {
+            console.log("Hight income!");
         } else {
-            i = i - 1;
+            console.log("Error!");
         }
-    } while ( i < 2 );
-    let i = 0;
-    while ( i < 2 ) {
-        let answerOnFirstQuestion = prompt("Enter mandatoryarticle expenses on current month:",""),
-            answerOnSecondQuestion = prompt("How money need for it?","");
-
-        if( (typeof(answerOnFirstQuestion)) === 'string' && (typeof(answerOnFirstQuestion)) != null && (
-            typeof(answerOnSecondQuestion)) != null && answerOnFirstQuestion != '' && answerOnSecondQuestion != '' && 
-            answerOnFirstQuestion.length < 50) {
-                console.log("done");
-                appData.expenses[answerOnFirstQuestion] = answerOnSecondQuestion;
-                i++;
-
-        } else {
-            i = i - 1;
-        }
-    }*/
-}
-
-chooseExpenses(); 
-appData.moneyPerDay = (appData.budget / 30).toFixed(); 
-alert("Budget on one day is - " + appData.moneyPerDay);
-
-if(appData.moneyPerDay < 100) {
-    console.log("Low income!");
-} else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-    console.log("Average income!");
-} else if ( appData.moneyPerDay > 2000) {
-    console.log("Hight income!");
-} else {
-    console.log("Error!");
-}
-
-function checkSevings(){
-    if (appData.savings == true) {
+    },
+    checkSevings: function() {
+         if (appData.savings == true) {
         let save = +prompt("How many cash in the your deposit?", ''),
             percent = +prompt("What percentege of your deposit?", '');
         
             appData.monthIncome = save / 100 / 12 * percent;
             alert("Income of your deposin in month is: " + appData.monthIncome.toFixed());
+        }
+    },
+    chooseOptExpenses: function() {
+        for (let i = 0; i < 3; i++){
+            let opt = prompt("A list of non-mandatory supplies", "");
+            appData.optionalExpenses[i] = opt;
+        }
+    },
+    chooseIncome: function() {
+        let items = prompt("What give you additional income? (You can writing it through a comma)", "");
+        appData.icome = items.split(', '); 
+        appData.icome.push(prompt("Maybe you remember some more additional income?", ""));
+        appData.icome.sort();
     }
-}
+};
 
-checkSevings();
+
+
+
+
+ /*let i = 0;
+        do { 
+            let answerOnFirstQuestion = prompt("Enter mandatoryarticle expenses on current month:",""),
+                answerOnSecondQuestion = prompt("How money need for it?","");
+    
+            if( (typeof(answerOnFirstQuestion)) === 'string' && (typeof(answerOnFirstQuestion)) != null && (
+                typeof(answerOnSecondQuestion)) != null && answerOnFirstQuestion != '' && answerOnSecondQuestion != '' && 
+                answerOnFirstQuestion.length < 50) {
+                    console.log("done");
+                    appData.expenses[answerOnFirstQuestion] = answerOnSecondQuestion;
+                    i++;
+    
+            } else {
+                i = i - 1;
+            }
+        } while ( i < 2 );
+        let i = 0;
+        while ( i < 2 ) {
+            let answerOnFirstQuestion = prompt("Enter mandatoryarticle expenses on current month:",""),
+                answerOnSecondQuestion = prompt("How money need for it?","");
+    
+            if( (typeof(answerOnFirstQuestion)) === 'string' && (typeof(answerOnFirstQuestion)) != null && (
+                typeof(answerOnSecondQuestion)) != null && answerOnFirstQuestion != '' && answerOnSecondQuestion != '' && 
+                answerOnFirstQuestion.length < 50) {
+                    console.log("done");
+                    appData.expenses[answerOnFirstQuestion] = answerOnSecondQuestion;
+                    i++;
+    
+            } else {
+                i = i - 1;
+            }
+        }*/
