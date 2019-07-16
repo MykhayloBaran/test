@@ -1,0 +1,17 @@
+.open {
+    width: 200px;
+}
+
+.start {
+    height: 50px;
+    width: 175px;
+    background-color: #479A91;
+    text-align: center;
+    display: block;
+    font-family: 'Acrom',sans-serif;
+    font-weight: 800;
+    /*text-transform: uppercase;*/
+    font-size: 16px;
+    color: white;
+    line-height: 50px;
+}

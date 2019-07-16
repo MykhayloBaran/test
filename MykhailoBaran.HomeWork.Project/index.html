@@ -5,9 +5,94 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>HomeWork!</title>
+        <link href="https://fonts.googleapis.com/css?family=Cuprum:400,700&amp;subset=cyrillic" rel="stylesheet">
+    	<link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <script src="script.js" ></script>
-        <p></p>
-    </body>
+        <div class="app">
+            <div class="logo">
+                <span>money</span>
+                keeper
+            </div>
+            <div class="title"> 
+                Розрахунок денного бюджету
+            </div>
+            <div class="main">
+                <div class="data">
+                    <div class="choose-expenses">Введіть обов'язкові розходи</div>
+                    <input class="expenses-item" type="text" id="expenses_1" placeholder="Назва">
+                    <input class="expenses-item" type="text" id="expenses_2" placeholder="Ціна">
+                    <input class="expenses-item" type="text" id="expenses_3" placeholder="Назва">
+                    <input class="expenses-item" type="text" id="expenses_4" placeholder="Ціна">
+                    <button class="expenses-item-btn">Підтвердити</button>
+
+                    <div class="optionalexpenses">Введіть не обов'язкові розходи</div>
+                    <input class="optionalexpenses-item" type="text" id="expenses_1" >
+                    <input class="optionalexpenses-item" type="text" id="expenses_2" >
+                    <input class="optionalexpenses-item" type="text" id="expenses_3" >
+                    <button class="optionalexpenses-item-btn">Підтвердити</button>
+
+                    <div class="count-budget">Розрахунок денного бюджету</div>
+                    <button class="optionalexpenses-item-btn">Розрахувати</button>
+
+                    <div class="choose-income-label">Введіть статі можливого доходу</div>
+                    <input class="choose-income" type="text" id="income">
+
+                    <div class="checkseving">Є якісь заощадження?
+                        <input id="savings" type="checkbox"/>
+                    </div>
+                    <label for="sum">Сума</label>
+                    <input class="choose-sum" id="sum" type="text">
+                    <label class="percent">Прроцент</label>
+                    <input class="choose-percent" id="percent" type="text">
+
+                    <div class="open">
+                        <button class="start" id="start">Почати розрахунок</button>
+                    </div>
+                </div>
+                <div class="result">
+                    <div class="result-table">
+                        <div class="budget">Дохід: </div>
+                        <div class="budget-value"></div>
+                        
+                        <div class="daybudget">Бюджет на 1 день: </div>
+                        <div class="daybudget-value"></div>
+
+                        <div class="level">Рівень доходу: </div>
+                        <div class="level-value"></div>
+
+                        <div class="expenses">Обов'язкові розходи: </div>
+                        <div class="expenses-value"></div>
+
+                        <div class="optionalexpenses">Можливі витрати: </div>
+                        <div class="optionalexpenses-value"></div>
+
+                        <div class="income">Додатковий дохід: </div>
+                        <div class="income-value"></div>
+
+                        <div class="monthsavings">Накопичення за 1 місяць: </div>
+                        <div class="monthsavings-value"></div>
+
+                        <div class="yearsavings">Накопичення за 1 рік: </div>
+                        <div class="yearsavings-value"></div>
+                    </div>
+                        <div class="time-data">
+                            <div class="year">
+                                Рік:
+                                <input class="year-value" type="text" readonly>
+                            </div>
+                            <div class="month">
+                                Місяць:
+                                <input class="month-value" type="text" readonly>
+                            </div>
+                            <div class="day">
+                                День:
+                                <input class="day-value" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+        </div>
+    <script src="script.js" ></script>
+</body>
 </html> 
